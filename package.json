@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate",
+  "name": "edt-enpc-demo",
   "version": "0.0.1",
   "scripts": {
     "postinstall": "bower install && gulp build",

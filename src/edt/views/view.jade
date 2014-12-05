@@ -1,0 +1,13 @@
+md-list
+  md-subheader
+    h1 Emploi du temps
+
+  md-list(layout="column")
+    md-item(ng-repeat="course in courses")
+      md-item-content
+        .md-tile-left
+          | {{ course.time_begin }}
+        .md-tile-content
+          h3 {{ course.name }}
+          h4 {{ course.department }} - {{ course.place }}
+          p {{ course.comment }}

@@ -1,9 +1,9 @@
 doctype html
 html(lang="en", ng-app="%module%")
   head
-    title Atom Angular Boilerplate
+    title Emploi du temps
     meta(charset="utf-8")
-    link(rel="icon", type="image/x-icon", href="/favicon.ico")
+    link(rel="icon", type="image/png", href="/favicon.png")
     link(rel="stylesheet", href="%styles%/vendor.css")
     link(rel="stylesheet", href="%styles%/app.css")
   body(
@@ -11,10 +11,8 @@ html(lang="en", ng-app="%module%")
     md-theme="orange"
   )
     base(href="/")
-    md-toolbar
-      .md-toolbar-tools
-        span Atom Angular Boilerplate
     md-content.md-padding(
+      md-theme="orange"
       ui-view
     )
 

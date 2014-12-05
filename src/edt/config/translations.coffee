@@ -1,4 +1,4 @@
-angular.module '%module%.landing'
+angular.module '%module%.edt'
 .config ($translateProvider) ->
   $translateProvider.translations 'en',
     HOME_TITLE: 'Welcome'
