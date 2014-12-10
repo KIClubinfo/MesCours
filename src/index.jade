@@ -6,13 +6,14 @@ html(lang="en", ng-app="%module%")
     link(rel="icon", type="image/png", href="/favicon.png")
     link(rel="stylesheet", href="%styles%/vendor.css")
     link(rel="stylesheet", href="%styles%/app.css")
+    meta(name="viewport", content="initial-scale=1.0, width:device-width")
   body(
     layout="vertical"
-    md-theme="orange"
   )
     base(href="/")
-    md-content.md-padding(
-      md-theme="orange"
+    md-content(
+      layout="column"
+      layout-fill
       ui-view
     )
 

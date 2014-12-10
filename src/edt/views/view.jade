@@ -1,13 +1,25 @@
-md-list
-  md-subheader
-    h1 Emploi du temps
+md-toolbar(md-scroll-shrink)
+  .md-toolbar-tools
+    h3 Emploi du temps
+    span(flex)
+    select(ng-model="currentDepartment", ng-options="department for department in departments", class="form-control")
+      option(value="") Tous
 
-  md-list(layout="column")
-    md-item(ng-repeat="course in courses")
-      md-item-content
-        .md-tile-left
-          | {{ course.time_begin }}
-        .md-tile-content
-          h3 {{ course.name }}
-          h4 {{ course.department }} - {{ course.place }}
-          p {{ course.comment }}
+.loader(layout, layout-align="center center", ng-hide="courses || errorNoNetwork")
+  md-progress-circular(md-mode="indeterminate")
+  span Chargement en cours...
+
+.autocenter(layout, layout-align="center center", ng-show="errorNoNetwork")
+  md-button.md-primary.md-raised(ng-click="loadCourses()") Réessayer
+
+md-list(ng-if="courses", layout-margin)
+  md-item(ng-repeat="course in courses | filter: departmentFilter")
+    md-item-content
+      .md-tile-left
+        | {{ course.time_begin | date : 'HH:mm' }}
+      .md-tile-content
+        h3 {{ course.name }}
+        h4 {{ course.place }}
+        p {{ course.comment }}
+      .md-tile-right.department(ng-hide="currentDepartment")
+        | {{ course.department }}
