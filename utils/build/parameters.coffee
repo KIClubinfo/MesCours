@@ -53,8 +53,4 @@ config =
       # Include the replace in the streams where needed
       replacer: (replace) -> replace modulePlaceholder, moduleName
 
-  analytics:
-    id: 'UA-XXXXXXXX-X'
-    domain: 'doma.in'
-
 module.exports = config
