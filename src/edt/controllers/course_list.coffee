@@ -1,6 +1,7 @@
 angular.module '%module%.edt'
 .controller 'CourseListCtrl', (
   $scope
+  $stateParams
   $mdDialog
   CourseFactory
   DepartmentListExtractor
@@ -16,7 +17,6 @@ angular.module '%module%.edt'
   .ok('Dommage :(')
 
   $scope.loadCourses = () ->
-    console.log "Go !"
     CourseFactory.findAll()
     .success (data) ->
       $scope.errorNoNetwork = false
@@ -26,6 +26,9 @@ angular.module '%module%.edt'
 
       $scope.departments = DepartmentListExtractor.extract $scope.courses
       console.log "Found "+$scope.departments.length+" departments"
+
+      # Set the pre-selected department
+      $scope.currentDepartment = $stateParams.dep
 
     .error () ->
       $mdDialog.show( alertNoNetwork )

@@ -2,7 +2,11 @@ md-toolbar(md-scroll-shrink)
   .md-toolbar-tools
     h3 Emploi du temps
     span(flex)
-    select(ng-model="currentDepartment", ng-options="department for department in departments", class="form-control")
+    select(
+      ng-model="currentDepartment"
+      ng-options="department for department in departments"
+      class="form-control"
+    )
       option(value="") Tous
 
 .loader(layout, layout-align="center center", ng-hide="courses || errorNoNetwork")
