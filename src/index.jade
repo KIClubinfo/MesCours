@@ -9,12 +9,42 @@ html(lang="en", ng-app="%module%")
     meta(name="viewport", content="initial-scale=1.0, width:device-width")
   body(
     layout="vertical"
+    ng-controller="ParametersCtrl"
   )
     base(href="/")
-    md-content(
+
+    section(
+      layout="row"
+      flex
+      md-swipe-left="toggleSidebar()"
+    )
+      md-sidenav.md-sidenav-left.md-whiteframe-z2(
+        md-component-id="left"
+      )
+        md-toolbar.md-theme-indigo
+          .md-toolbar-tools
+            h3 MesCours
+            span(flex)
+            span(ng-click="toggleSidebar()")
+              i.fa.fa-times
+        md-content.md-padding
+          md-checkbox.md-primary(
+            md-no-ink
+            aria-label="Cacher les cours passés"
+            ng-model="prefs.hidePastCourses"
+          )
+            | Cacher les cours passés
+          md-divider
+          p.notice
+            | MesCours vous permet de consulter rapidement et simplement quels sont vos prochains cours, notamment l'heure et la salle.
+            br
+            | Pour toute idée d'amélioration, plainte parce que c'est de la merde, et déclarations d'amour, adressez-vous à <a href="mailto:clubinfo@clubinfo.enpc.fr">clubinfo@clubinfo.enpc.fr</a>.
+
+    div(
       layout="column"
       layout-fill
       ui-view
+      md-swipe-right="toggleSidebar()"
     )
 
     script(src="%scripts%/vendor.js")

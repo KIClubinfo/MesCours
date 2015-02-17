@@ -8,6 +8,7 @@ angular.module '%module%.edt'
 ) ->
 
   $scope.currentDepartment = null
+  $scope.currentDate = new Date()
   $scope.errorNoNetwork = false
 
   alertNoNetwork = $mdDialog.alert()
@@ -36,6 +37,9 @@ angular.module '%module%.edt'
 
   $scope.departmentFilter = (course) ->
     !$scope.currentDepartment or course.department == $scope.currentDepartment
+
+  $scope.pastCourseFilter = (course) ->
+    !$scope.prefs.hidePastCourses or course.time_end > $scope.currentDate
 
   # Call the API
   $scope.loadCourses()

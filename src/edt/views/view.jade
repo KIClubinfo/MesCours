@@ -1,6 +1,7 @@
 md-toolbar(md-scroll-shrink)
   .md-toolbar-tools
-    h3 Emploi du temps
+    h3(ng-click="toggleSidebar()")
+      | Emploi du temps
     span(flex)
     select(
       ng-model="currentDepartment"
@@ -17,7 +18,7 @@ md-toolbar(md-scroll-shrink)
   md-button.md-primary.md-raised(ng-click="loadCourses()") Réessayer
 
 md-list(ng-if="courses", layout-margin)
-  md-item(ng-repeat="course in courses | filter: departmentFilter")
+  md-item(ng-repeat="course in filteredCourses = (courses | filter: departmentFilter | filter: pastCourseFilter)")
     md-item-content
       .md-tile-left.timedate
         | {{ course.time_begin | date : 'HH:mm' }}
@@ -31,3 +32,11 @@ md-list(ng-if="courses", layout-margin)
         | {{ course.department }}
 
     md-divider(ng-if="!$last")
+
+  .autocenter(ng-hide="filteredCourses.length > 0")
+    h2.text-center Aucun cours !
+    div(ng-show="prefs.hidePastCourses")
+      p Vous avez choisi de cacher les cours qui sont déjà terminés, pour cette journée.
+      md-button.md-raised.md-primary.full-width(ng-click="prefs.hidePastCourses = false") Les montrer
+    div(ng-hide="prefs.hidePastCourses")
+      p Il n'y a aucun cours aujourd'hui.
