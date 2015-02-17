@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "bower install && gulp build",
     "start": "gulp watch",
-    "deploy": "gulp deploy"
+    "deploy": "gulp build && gulp deploy"
   },
   "dependencies": {
     "bower": "*",
