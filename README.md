@@ -1,9 +1,10 @@
-# Atom Angular Boilerplate
-> Starter kit with our best practices
+# MesCours
 
-[![Dependencies](http://img.shields.io/gemnasium/atom-angular/boilerplate.svg?style=flat)](https://gemnasium.com/atom-angular/boilerplate)
+Une petite application qui utilise l'[API REST des cours](https://github.com/KIClubinfo/EDTAPI) pour afficher les prochains cours.
 
-### Build
+## Starter Guide
+
+Il vous faudra `npm` (`apt-get install npm` ?)
 
 ```bash
 # Install npm + bower dependencies and then build
@@ -13,35 +14,13 @@ npm start
 # http://localhost:8000
 ```
 
-### Tests
+Vous avez maintenant [un petit serveur qui tourne en local](http://localhost:8000) pour tester et développer.
+Et qui s'autoreload à chaque modification des sources.
+
+## Déploiement
+
+Pour déployer sur les Github Pages :
 
 ```bash
-# Unit tests - Karma + mocha + chai
-npm run test:unit
-
-# Functional tests - Protractor + chai + cucumber
-# Available options:
-# HOST     -> http://localhost:8000
-# BROWSER  -> chrome | firefox | phantomjs
-# SELENIUM -> http://127.0.0.1:4444/wd/hub
-# You need specify a selenium server or to install one with!
-# Local server must be launched: npm start &
-node_modules/.bin/webdriver-manager update
-HOST=http://localhost:8000 BROWSER=chrome npm run test:functional
-npm run test:functional
+npm run deploy
 ```
-
-### Submodules
-
-```
-git submodule foreach git pull origin master
-```
-
-### Livereload
-
-[Chrome extention](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
-
-### Documentation
-
-    # Generate docs using dgeni
-    npm run docs
