@@ -21,9 +21,13 @@ md-list(ng-if="courses", layout-margin)
     md-item-content
       .md-tile-left.timedate
         | {{ course.time_begin | date : 'HH:mm' }}
+        br
+        small {{ course.time_end | date : 'HH:mm' }}
       .md-tile-content
         h3 {{ course.name }}
         h4 {{ course.place }}
         p {{ course.comment }}
       .md-tile-right.department(ng-hide="currentDepartment")
         | {{ course.department }}
+
+    md-divider(ng-if="!$last")
