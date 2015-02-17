@@ -5,18 +5,29 @@ angular.module '%module%.edt'
   BASE_API_URL
 ) ->
 
-  findAll = () ->
+  findAll = (date = null) ->
+
+    params =
+      date: date or moment().format 'DD/MM/YYYY'
+
     $http(
       method:   'GET'
       url:       BASE_API_URL+'courses'
+      params:    params
     )
     .success (data) ->
       data
 
-  findByDepartment = (departmentCode) ->
+  findByDepartment = (departmentCode, date = null) ->
+
+    params =
+      date: date or moment().format 'DD/MM/YYYY'
+      department: departmentCode
+
     $http(
       method:   'GET'
-      url:       BASE_API_URL+'courses?department='+departmentCode
+      url:       BASE_API_URL+'courses'
+      params:    params
     )
     .success (data) ->
       data

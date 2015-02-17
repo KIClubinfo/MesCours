@@ -15,7 +15,7 @@ md-toolbar(md-scroll-shrink)
 md-list(ng-if="courses", layout-margin)
   md-item(ng-repeat="course in courses | filter: departmentFilter")
     md-item-content
-      .md-tile-left
+      .md-tile-left.timedate
         | {{ course.time_begin | date : 'HH:mm' }}
       .md-tile-content
         h3 {{ course.name }}
