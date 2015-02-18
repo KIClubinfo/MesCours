@@ -39,7 +39,7 @@ angular.module '%module%.edt'
     !$scope.currentDepartment or course.department == $scope.currentDepartment
 
   $scope.pastCourseFilter = (course) ->
-    !$scope.prefs.hidePastCourses or course.time_end > $scope.currentDate
+    !$scope.prefs.hidePastCourses or new Date(Date.parse(course.time_end)) > $scope.currentDate
 
   # Call the API
   $scope.loadCourses()
