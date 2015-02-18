@@ -23,6 +23,7 @@ gulp.task 'vendor', ->
   gulp.src mainBowerFiles()
   .pipe filter [
       '**/*.woff'
+      '**/*.woff2'
       '**/*.svg'
       '**/*.eot'
       '**/*.ttf'
