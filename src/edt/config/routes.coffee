@@ -1,7 +1,9 @@
 angular.module '%module%.edt'
-.config ($stateProvider) ->
+.config ($stateProvider, $urlRouterProvider) ->
   $stateProvider
   .state 'edt',
     url: '/?dep'
     controller:  'CourseListCtrl'
     templateUrl: 'edt/views/view.html'
+
+  $urlRouterProvider.otherwise '/'
