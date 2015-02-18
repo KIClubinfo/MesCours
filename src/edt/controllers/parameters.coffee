@@ -4,12 +4,20 @@ angular.module '%module%.edt'
     $stateParams
     $mdDialog
     $mdSidenav
-    $timeout
+    localStorageService
   ) ->
 
   # Initialize the preferences
-  $scope.prefs =
-    hidePastCourses: true
+  prefs = localStorageService.get('prefs')
+  if prefs
+    $scope.prefs = prefs
+  else
+    $scope.prefs =
+      hidePastCourses: true
+
+  $scope.$watch 'prefs',  () ->
+    localStorageService.set 'prefs', $scope.prefs
+  , true
 
   $scope.toggleSidebar = () ->
     $mdSidenav('left').toggle()

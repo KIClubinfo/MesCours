@@ -9,7 +9,8 @@
     "angulartics": "*",
     "font-awesome": "*",
     "lodash": "*",
-    "momentjs": "*"
+    "momentjs": "*",
+    "angular-local-storage": "*"
   },
   "devDependencies": {
     "angular-mocks": "*"

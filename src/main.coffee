@@ -11,6 +11,7 @@
 
 angular.module '%module%', [
   'ngMaterial'
+  'LocalStorageModule'
   '%module%.utils'
   '%module%.edt'
 ]
