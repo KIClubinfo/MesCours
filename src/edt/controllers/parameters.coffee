@@ -9,7 +9,7 @@ angular.module '%module%.edt'
 
   # Initialize the preferences
   $scope.prefs =
-    hidePastCourses = false
+    hidePastCourses: true
 
   $scope.toggleSidebar = () ->
     $mdSidenav('left').toggle()
