@@ -19,8 +19,18 @@ Et qui s'autoreload à chaque modification des sources.
 
 ## Déploiement
 
-Pour déployer sur les Github Pages :
+### Pour déployer sur les Github Pages :
 
 ```bash
 npm run deploy
 ```
+
+### Pour déployer vers les applications mobiles
+
+```bash
+cd mobile
+cordova platform add android
+cordova run android
+```
+
+Remplacez Android par la plateforme visée.
