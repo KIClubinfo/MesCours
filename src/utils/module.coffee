@@ -10,5 +10,4 @@
 angular.module '%module%.utils', [
   'ng'
   'ui.router'
-  'pascalprecht.translate'
 ]

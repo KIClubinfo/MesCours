@@ -10,5 +10,4 @@
 angular.module '%module%.edt', [
   'ng'
   'ui.router'
-  'pascalprecht.translate'
 ]
