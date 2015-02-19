@@ -5,6 +5,7 @@ angular.module '%module%.edt'
   $mdDialog
   CourseFactory
   DepartmentListExtractor
+  localStorageService
 ) ->
 
   $scope.currentDepartment = null
@@ -29,7 +30,7 @@ angular.module '%module%.edt'
       console.log "Found "+$scope.departments.length+" departments"
 
       # Set the pre-selected department
-      $scope.currentDepartment = $stateParams.dep
+      setDepartment()
 
     .error () ->
       $mdDialog.show( alertNoNetwork )
@@ -43,3 +44,11 @@ angular.module '%module%.edt'
 
   # Call the API
   $scope.loadCourses()
+
+  setDepartment = () ->
+    $scope.currentDepartment = $stateParams.dep or localStorageService.get('currentDepartment') or null
+
+    # Watch the currentDepartment to store it
+    $scope.$watch 'currentDepartment',  () ->
+      localStorageService.set 'currentDepartment', $scope.currentDepartment
+    , true
