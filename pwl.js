@@ -3,7 +3,7 @@ _paq.push(["setCookieDomain", "*.http"]);
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
-    var u="//piwik.securem.eu/";
+    var u="http://piwik.securem.eu/";
     _paq.push(['setTrackerUrl', u+'pw.php']);
     _paq.push(['setSiteId', 5]);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
